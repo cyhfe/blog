@@ -1,7 +1,12 @@
-/**
- * @param {number[]} nums
- * @return {void} Do not return anything, modify nums in-place instead.
- */
+---
+sidebar_position: 6
+tags:
+  - 算法
+---
+
+[move-zeroes](https://leetcode.com/problems/move-zeroes/)
+
+```js
 var moveZeroes = function (nums) {
   let i = 0
   let j = nums.length - 1
@@ -15,6 +20,4 @@ var moveZeroes = function (nums) {
     }
   }
 }
-
-const nums = [0, 0, 1]
-moveZeroes(nums)
+```
