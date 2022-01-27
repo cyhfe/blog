@@ -1,9 +1,10 @@
-var titleToNumber = function (columnTitle) {
-  let output = 0
-  let j = 0
-  for (let i = columnTitle.length - 1; i >= 0; i--) {
-    output += (columnTitle[i].charCodeAt(0) - 64) * Math.pow(26, j)
-    j++
+var maxProfit = function (prices) {
+  let profit = 0
+  for (let i = 1; i < prices.length; i++) {
+    const [prev, curr] = [prices[i - 1], prices[i]]
+    if (prev < curr) {
+      profit += curr - prev
+    }
   }
-  return output
+  return profit
 }
