@@ -1,21 +1,32 @@
 /**
- * @param {number[]} nums
+ * @param {number[]} prices
  * @return {number}
  */
 
-// 1
-var missingNumber = function (nums) {
-  for (let i = 0; i <= nums.length; i++) {
-    let index = nums.indexOf(i)
-    if (index === -1) return i
+var maxProfit = function (prices) {
+  let profit = 0
+  for (let i = 0; i < prices.length; i++) {
+    for (let j = i + 1; j < prices.length; j++) {
+      profit = Math.max(profit, prices[j] - prices[i])
+    }
   }
+  return profit
 }
 
-// 2
-var missingNumber = function (nums) {
-  let array = new Array(nums.length + 1).fill(-1)
-  for (const num of nums) {
-    array[num] = num
+var maxProfit = function (prices) {
+  let profit = 0
+  let min = prices[0]
+
+  for (let i = 1; i < prices.length; ++i) {
+    if (min > prices[i]) {
+      min = prices[i]
+    } else if (prices[i] - min > profit) {
+      profit = prices[i] - min
+    }
   }
-  return array.indexOf(-1)
+
+  return profit
 }
+
+const prices = [7, 6, 4, 3, 1]
+console.log(maxProfit(prices))
