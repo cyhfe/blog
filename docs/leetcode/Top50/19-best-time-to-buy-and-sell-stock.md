@@ -1,3 +1,14 @@
+---
+sidebar_position: 19
+tags:
+  - 算法
+---
+
+# best-time-to-buy-and-sell-stock
+
+[best-time-to-buy-and-sell-stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+
+```js
 /**
  * @param {number[]} prices
  * @return {number}
@@ -27,3 +38,4 @@ var maxProfit = function (prices) {
   }
   return profit
 }
+```
