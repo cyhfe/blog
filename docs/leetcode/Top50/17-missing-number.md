@@ -1,3 +1,14 @@
+---
+sidebar_position: 17
+tags:
+  - 算法
+---
+
+# missing-number
+
+[missing-number](https://leetcode.com/problems/missing-number/)
+
+```js
 /**
  * @param {number[]} nums
  * @return {number}
@@ -19,3 +30,4 @@ var missingNumber = function (nums) {
   }
   return array.indexOf(-1)
 }
+```
