@@ -3,6 +3,7 @@
  * @return {number}
  */
 
+// O(n^2)
 var maxProfit = function (prices) {
   let profit = 0
   for (let i = 0; i < prices.length; i++) {
@@ -13,6 +14,7 @@ var maxProfit = function (prices) {
   return profit
 }
 
+// O(n)
 var maxProfit = function (prices) {
   let profit = 0
   let min = prices[0]
@@ -27,6 +29,3 @@ var maxProfit = function (prices) {
 
   return profit
 }
-
-const prices = [7, 6, 4, 3, 1]
-console.log(maxProfit(prices))
