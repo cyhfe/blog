@@ -1,3 +1,14 @@
+---
+sidebar_position: 20
+tags:
+  - 算法
+---
+
+# happy-number
+
+[happy-number](https://leetcode.com/problems/happy-number/)
+
+```js
 function isHappy(n) {
   let target = String(n)
   let result = 0
@@ -23,3 +34,4 @@ function isHappy(n) {
 }
 
 console.log(isHappy(2))
+```
