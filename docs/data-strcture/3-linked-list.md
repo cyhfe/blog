@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # linked-list
 
-![](/img/data-structure/linkedlist.png)
+![linkedlist](/img/data-structure/linkedlist.png)
 
 ## linked-list 实现
 
