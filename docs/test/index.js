@@ -48,7 +48,9 @@ class BinarySearchTree {
     }
     return false
   }
-  // remove
+
+  // todo
+  remove(value) {}
 }
 
 const tree = new BinarySearchTree()
