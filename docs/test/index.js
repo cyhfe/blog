@@ -49,6 +49,65 @@ class BinarySearchTree {
     return false
   }
 
+  min() {
+    if (this.root === null) return null
+    let current = this.root
+    while (true) {
+      if (current.left === null) {
+        return current.value
+      } else {
+        current = current.left
+      }
+    }
+  }
+
+  max() {
+    if (this.root === null) return null
+    let current = this.root
+    while (true) {
+      if (current.right === null) {
+        return current.value
+      } else {
+        current = current.right
+      }
+    }
+  }
+
+  minR() {
+    if (this.root === null) return null
+    return this.minNode(this.root)
+  }
+
+  minNode(node) {
+    if (node.left === null) return node.value
+    return this.minNode(node.left)
+  }
+
+  //inOrderTraverse
+  // 中序遍历 （从小到大）
+  inOrderTraverse(callback) {
+    this.inOrderTraverseNode(this.root, callback)
+  }
+
+  inOrderTraverseNode(node, callback) {
+    if (node !== null) {
+      this.inOrderTraverseNode(node.left, callback)
+      callback(node.value)
+      this.inOrderTraverseNode(node.right, callback)
+    }
+  }
+
+  preOrderTraverse(callback) {
+    this.preOrderTraverseNode(this.root, callback)
+  }
+
+  preOrderTraverseNode(node, callback) {
+    if (node != null) {
+      callback(node.value)
+      this.preOrderTraverseNode(node.left, callback)
+      this.preOrderTraverseNode(node.right, callback)
+    }
+  }
   // todo
   remove(value) {}
 }
@@ -61,8 +120,15 @@ tree.insert(20)
 tree.insert(170)
 tree.insert(15)
 tree.insert(1)
-let r = JSON.stringify(traverse(tree.root))
-console.log(tree.lookup(171))
+
+// const min = tree.min()
+// const minR = tree.minR()
+// const max = tree.max()
+// console.log(min, minR, max)
+
+// const array = []
+// tree.inOrderTraverse((v) => array.push(v))
+// console.log(array)
 
 //     9
 //  4     20
