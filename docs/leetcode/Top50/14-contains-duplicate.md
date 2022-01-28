@@ -6,7 +6,7 @@ tags:
 
 # contains-duplicate
 
-[contains-duplicate](https://leetcode.com/problems/contains-duplicate/)
+[contains-duplicate](https://leetcode.com/problems/contains-duplicate)
 
 ```js
 // 1
