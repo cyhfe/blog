@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Array
+# array
 
-Array 通过 index 存储数据.对数组进行操作需要更改对应的 index 和 length
+数组通过 index 存储数据.对数组进行操作需要更改对应的 index 和 length
 
 ## 用对象模拟 Array
 
