@@ -4,6 +4,7 @@ const isProperty = (key) => key !== "children" && !isEvent(key)
 const isNew = (prev, next) => (key) => prev[key] !== next[key]
 const isGone = (prev, next) => (key) => !(key in next)
 
+// 将jsx转换为react element
 function createElement(type, props, ...children) {
   return {
     type,
@@ -26,6 +27,7 @@ function createTextElement(text) {
   }
 }
 
+// 创建dom 更新属性
 function createDom(fiber) {
   const dom =
     fiber.type == "TEXT_ELEMENT"

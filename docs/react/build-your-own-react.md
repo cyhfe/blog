@@ -77,6 +77,7 @@ function performUnitOfWork(fiber) {
 ## 完整代码
 
 ```js
+// 将jsx转换为react element
 function createElement(type, props, ...children) {
   return {
     type,
