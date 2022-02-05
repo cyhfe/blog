@@ -151,3 +151,31 @@ class CrazyQueue {
   }
 }
 ```
+
+## stack 解决十进制转换
+
+```js
+// num / base 取余（当前位置（从末尾开始）的值）
+
+function baseConverter(decNumber, base) {
+  const stack = new Stack()
+  const digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  let output = ""
+  let rem
+  let num = decNumber
+  while (num > 0) {
+    rem = num % base
+    stack.push(digits[rem])
+    num = Math.floor(num / base)
+  }
+  while (stack.peek()) {
+    output += stack.pop()
+  }
+  return output
+}
+
+console.log(baseConverter(100345, 2)) // 11000011111111001
+console.log(baseConverter(100345, 8)) // 303771
+console.log(baseConverter(100345, 16)) // 187F9
+console.log(baseConverter(100345, 35)) // 2BW0
+```
