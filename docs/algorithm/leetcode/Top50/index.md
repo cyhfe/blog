@@ -6,8 +6,6 @@ tags:
 
 # Top Interview Questions 50
 
-1.26 号开始，每天 5 道，10 天完成。
-
 <p>
   Want some extra practice? Here are a list of some of the top interview
   questions focusing on data structures and algorithms:<br /><br />#344
