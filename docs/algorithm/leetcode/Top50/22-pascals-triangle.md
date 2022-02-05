@@ -1,3 +1,14 @@
+---
+sidebar_position: 22
+tags:
+  - 算法
+---
+
+# pascals-triangle
+
+[pascals-triangle](https://leetcode.com/problems/pascals-triangle/)
+
+```js
 var generate = function (numRows) {
   const output = []
   for (let i = 0; i < numRows; i++) {
@@ -10,3 +21,4 @@ var generate = function (numRows) {
   }
   return output
 }
+```
