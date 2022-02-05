@@ -41,3 +41,26 @@ bar()
 而是 Foo => Global, Bar => Global
 
 ![作用域](https://static001.geekbang.org/resource/image/82/8c/82c84c81f8c94915d4965ce38d285e8c.jpg)
+
+## 闭包
+
+```js
+function foo() {
+  let a = 0
+  return function bar() {
+    console.log(a++)
+  }
+}
+
+const baz = foo()
+
+baz()
+```
+
+foo 执行完退出，作用域链也销毁了。
+
+bar 被 baz 保存在全局作用域中。
+
+baz 函数有个[[scope]]属性，是一个数组，第一项 closure 里面存储着该函数引用的变量（只存储函数引用的变量）以及后续的作用域链
+
+baz 查找变量就是按 closure => 作用域链
