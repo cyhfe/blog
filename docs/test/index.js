@@ -1,12 +1,16 @@
-var generate = function (numRows) {
-  const output = []
-  for (let i = 0; i < numRows; i++) {
-    output[i] = []
-    output[i][0] = 1
-    for (let j = 1; j < i; j++) {
-      output[i][j] = output[i - 1][j - 1] + output[i - 1][j]
-    }
-    output[i][i] = 1
-  }
-  return output
+function SuperType(name) {
+  this.name = name
+  this.colors = ["red", "blue", "green"]
+}
+SuperType.prototype.sayName = function () {
+  console.log(this.name)
+}
+function SubType(name, age) {
+  SuperType.call(this, name)
+  this.age = age
+}
+// 第二次调用SuperType()
+SubType.prototype = new SuperType() // 第一次调用SuperType() 6 SubType.prototype.constructor = SubType;
+SubType.prototype.sayAge = function () {
+  console.log(this.age)
 }
