@@ -1,8 +1,8 @@
 # 递归
 
-## 循环与递归
+## Iteration vs. Recursion
 
-### Iteration vs. Recursion
+### 和
 
 ```js
 function sum(nums) {
