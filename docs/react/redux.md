@@ -179,3 +179,9 @@ store.dispatch(asyncDispatch)
 // let r = compose(firstFour, upperCase, getUserName)(user)
 // console.log(r)
 ```
+
+## 我终于搞懂了 redux 的中间件实现
+
+next 其实就是下一个 middleware 函数
+
+最后一个 next 是 dispatch
