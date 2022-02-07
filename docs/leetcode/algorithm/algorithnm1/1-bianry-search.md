@@ -46,3 +46,21 @@ var solution = function (isBadVersion) {
   }
 }
 ```
+
+## 搜索插入位置
+
+```js
+let start = 0
+let end = nums.length - 1
+
+while (start <= end) {
+  let mid = Math.floor((end - start) / 2) + start
+  if (nums[mid] === target) return mid
+  if (nums[mid] < target) {
+    start = mid + 1
+  } else {
+    end = mid - 1
+  }
+}
+return start
+```
