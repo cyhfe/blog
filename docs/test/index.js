@@ -1,16 +1,23 @@
-function SuperType(name) {
-  this.name = name
-  this.colors = ["red", "blue", "green"]
+function fibonacci(n) {
+  if (n === 0) return 0
+  if (n === 1) return 1
+
+  let pre = 0
+  let cur = 1
+  while (n > 1) {
+    let next = pre + cur
+    pre = cur
+    cur = next
+    n--
+  }
+  return cur
 }
-SuperType.prototype.sayName = function () {
-  console.log(this.name)
+
+function fibonacciR(n) {
+  if (n === 0) return 0
+  if (n === 1) return 1
+
+  return fibonacciR(n - 1) + fibonacciR(n - 2)
 }
-function SubType(name, age) {
-  SuperType.call(this, name)
-  this.age = age
-}
-// 第二次调用SuperType()
-SubType.prototype = new SuperType() // 第一次调用SuperType() 6 SubType.prototype.constructor = SubType;
-SubType.prototype.sayAge = function () {
-  console.log(this.age)
-}
+
+console.log(fibonacci(10))
