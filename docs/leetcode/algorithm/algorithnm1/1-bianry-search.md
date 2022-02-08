@@ -47,7 +47,7 @@ var solution = function (isBadVersion) {
 }
 ```
 
-## 搜索插入位置
+## 35. 搜索插入位置
 
 ```js
 let start = 0

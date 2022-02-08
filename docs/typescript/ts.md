@@ -20,6 +20,8 @@ const phones: {
     number: string
   }
 } = {}
+
+// Record<string, Item> 作用相同
 ```
 
 ## Tuples
