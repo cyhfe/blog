@@ -24,3 +24,25 @@ var sortedSquares = function (nums) {
   return output
 }
 ```
+
+## 189. 轮转数组
+
+```js
+var rotate = function (nums, k) {
+  function reverse(left, right) {
+    while (left < right) {
+      ;[nums[left], nums[right]] = [nums[right], nums[left]]
+      left++
+      right--
+    }
+  }
+  k = k % nums.length
+
+  let left = 0
+  let right = nums.length - 1
+
+  reverse(left, right)
+  reverse(0, k - 1)
+  reverse(k, nums.length - 1)
+}
+```
