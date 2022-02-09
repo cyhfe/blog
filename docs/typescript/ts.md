@@ -114,3 +114,11 @@ function flip(f: Flippable) {
 flip(Flippable.Buger)
 flip(Flippable.Chair)
 ```
+
+## class
+
+### 属性权限
+
+public 默认值。可以从任何地方获取
+protected 当前类或子类
+private 当前类的实例
