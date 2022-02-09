@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # bianry search
 
 ## 704. 二分查找

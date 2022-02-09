@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # two pointers
 
 ## 977. 有序数组的平方
