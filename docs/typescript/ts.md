@@ -120,5 +120,84 @@ flip(Flippable.Chair)
 ### 属性权限
 
 public 默认值。可以从任何地方获取
+
 protected 当前类或子类
+
 private 当前类的实例
+
+## 函数声明
+
+```ts
+function add(a: number, b: number): number {
+  return a + b
+}
+```
+
+```ts
+type Add = (a: number, b: number) => number
+
+const add: Add = (a, b) => a + b
+```
+
+### 函数重载
+
+```ts
+type CreateElement = {
+  (tag: "a"): HTMLAnchorElement
+  (tag: "canvas"): HTMLCanvasElement
+}
+```
+
+### 范型
+
+范型定义在调用签名前，在函数调用时绑定具体的类型
+
+```ts
+type Filter = {
+  <T>(array: T[], f: (item: T) => boolean): T[]
+}
+
+const filter: Filter = (array, f) => {
+  return array
+}
+```
+
+范性定义在 Filter 上，当我们使用时必须显式绑定类型
+
+```ts
+type Filter<T> = {
+  (array: T[], f: (item: T) => boolean): T[]
+}
+
+const filter: Filter<string> = (array, f) => {
+  return array
+}
+```
+
+### 声明范型的几种形式
+
+```ts
+type Filter = {
+  <T>(array: T[], f: (item: T) => boolean): T[]
+}
+type Filter = <T>(array: T[], f: (item: T) => boolean): T[]
+let filter: Filter = //...
+
+type Filter<T> = {
+  (array: T[], f: (item: T) => boolean): T[]
+}
+type Filter<T> = (array: T[], f: (item: T) => boolean): T[]
+let filter = Filter<number> //...
+
+function filter<T>(array: T[], f: (item: T) => boolean):T[]{
+
+}
+
+```
+
+```ts
+type MyEvent<T> = {
+  target: T
+  type: string
+}
+```
