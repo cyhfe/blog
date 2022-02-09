@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# two pointers
+# two pointers 2
 
 ## 282 移动零
 
