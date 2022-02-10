@@ -25,3 +25,31 @@
 // }
 
 // console.log(selectedSort([1, 3, 4, 5, 2, 0]))
+
+// function insertSort(nums) {
+//   // 待排序
+//   for (let i = 1; i < nums.length; i++) {
+//     //已排序
+//     let j = i
+//     let temp = nums[i]
+//     while (j > 0 && nums[j - 1] > temp) {
+//       nums[j] = nums[j - 1]
+//       j--
+//     }
+//     nums[j] = temp
+//   }
+//   return nums
+// }
+
+// console.log(insertSort([1, 3, 4, 5, 2, 0]))
+
+function mergeSort(nums) {
+  let output
+  if (nums.length > 1) {
+    const mid = Math.floor(nums.length / 2)
+    const left = mergeSort(nums.slice(0, mid))
+    const right = mergeSort(nums.slice(mid))
+    output = merge(left, right)
+  }
+  return output
+}
