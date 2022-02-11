@@ -24,21 +24,23 @@ var middleNode = function (head) {
 ## 19. 删除链表的倒数第 N 个结点
 
 ```js
-let fast = head
-let slow = head
+var removeNthFromEnd = function (head, n) {
+  let fast = head
+  let slow = head
 
-for (let i = 0; i < n; i++) {
-  fast = fast.next
+  for (let i = 0; i < n; i++) {
+    fast = fast.next
+  }
+
+  if (!fast) return head.next
+
+  while (fast.next) {
+    fast = fast.next
+    slow = slow.next
+  }
+
+  slow.next = slow.next.next
+
+  return head
 }
-
-if (!fast) return head.next
-
-while (fast.next) {
-  fast = fast.next
-  slow = slow.next
-}
-
-slow.next = slow.next.next
-
-return head
 ```
