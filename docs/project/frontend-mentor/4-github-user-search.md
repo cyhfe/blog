@@ -12,6 +12,11 @@ sidebar_position: 4
 
 ![](./images/light.png)
 
+## Links
+
+- [live](https://cyh-github-user-search.netlify.app/)
+- [github](https://github.com/cyhfe/github-user-search)
+
 使用 github user api,通过 fetch 获取数据展示页面.
 
 使用 react 构建 UI 界面
