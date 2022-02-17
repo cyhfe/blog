@@ -2,11 +2,9 @@
 sidebar_position: 2
 ---
 
-# quote generator
-
 # infinity scroll
 
-![](./images/infinity-scroll.png.png)
+![](./images/infinity-scroll.png)
 
 [live demo](https://cyh-infinity-scroll.netlify.app/)
 
