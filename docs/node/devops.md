@@ -5,7 +5,7 @@
 sudo -i
 
 # 登录
-ssh
+ssh ip
 
 # 查看端口 pid
 lsof -i tcp:3000
