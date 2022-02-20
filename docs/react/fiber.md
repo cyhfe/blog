@@ -41,3 +41,9 @@ concurrent mode 是可中断的,在浏览器空闲的时候执行一个单元任
 fiber node 就是代表一个单元任务(a unit of work)的数据结构
 
 可以被跟踪,调度,暂停和放弃.
+
+第一次创建时,根据 react element 创建 fiber node.
+
+更新时,重用 fiber node,只更新必要的属性.
+
+还可能根据 key 值只移动 node 节点
