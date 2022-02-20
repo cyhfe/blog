@@ -1,4 +1,4 @@
-# fiber
+# inside fiber
 
 ## React elements
 
@@ -46,4 +46,17 @@ fiber node 就是代表一个单元任务(a unit of work)的数据结构
 
 更新时,重用 fiber node,只更新必要的属性.
 
-还可能根据 key 值只移动 node 节点
+还可能根据 key 值只移动 node 节点.
+
+![](https://images.indepth.dev/images/2019/07/image-51.png)
+
+## Current and work in progress trees
+
+react 有 2 棵 fiber 树
+
+- current: 当前页面显示的 fiber 树
+- workInProgress: 即将更新的 fiber 树
+
+## General algorithm
+
+react 任务分为两个部分:render 和 commit
