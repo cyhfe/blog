@@ -4,6 +4,29 @@ sidebar_position: 1
 
 # 实现 react
 
+## render
+
+element 像`<App/>`这样,调用 `createElement`递归创建一个 elements 树结构对象
+
+```js
+function render(element, container) {
+  // 应用的根节点
+  wipRoot = {
+    dom: container,
+    props: {
+      children: [element],
+    },
+    // 指向该fiber在另一次更新时对应的fiber
+    alternate: currentRoot,
+  }
+
+  deletion = []
+
+  // 下次 requestIdleCallback 执行
+  nextUnitOfWork = wipRoot
+}
+```
+
 ## 时间切片
 
 ```js
@@ -24,23 +47,11 @@ function workLoop(deadline) {
 requestIdleCallback(workLoop)
 ```
 
-## createRoot
-
-```js
-function createRoot(element, container) {
-  wipRoot = {
-    dom: container,
-    props: {
-      children: [element],
-    },
-    alternate: currentRoot,
-  }
-  deletions = []
-  nextUnitOfWork = wipRoot
-}
-```
-
 ## performUnitOfWork
+
+根据当前 fiber 更新/创建新的 fiber
+把 children 变成 fiber 结构
+返回下一个 fiber(dfs)
 
 ```js
 function performUnitOfWork(fiber) {
