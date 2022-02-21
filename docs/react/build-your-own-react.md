@@ -49,7 +49,7 @@ requestIdleCallback(workLoop)
 
 ## performUnitOfWork
 
-根据当前 fiber 更新/创建新的 fiber
+根据当前 fiber 更新/创建新的 fiber(尽可能复用,打上标记)
 把 children 变成 fiber 结构
 返回下一个 fiber(dfs)
 
