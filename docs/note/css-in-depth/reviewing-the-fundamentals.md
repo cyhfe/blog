@@ -8,9 +8,10 @@ sidebar_position: 1
     - [1.3 understanding source order](#13-understanding-source-order)
       - [link styles](#link-styles)
     - [1.4 two rules of thumb](#14-two-rules-of-thumb)
-- [2 inheritance](#2-inheritance)
-- [3 special values](#3-special-values)
-  - [3.1 using the inherit ketword](#31-using-the-inherit-ketword)
+  - [1.2 inheritance](#12-inheritance)
+  - [1.3 special values](#13-special-values)
+    - [1.3.1 using the inherit ketword](#131-using-the-inherit-ketword)
+  - [1.4 shorthand properties](#14-shorthand-properties)
 
 
 
@@ -50,7 +51,7 @@ link >> visited >> hover >> active
 1. dont use id in your selector
 2. dont use !important
 
-# 2 inheritance 
+## 1.2 inheritance 
 
 In general, these are the properties you’ll want to be inherited. They are primarily properties pertaining to text: color, font, font-family, font-size, font-weight, font-variant, font-style, line-height, letter-spacing, text-align, text-indent, text-transform, white-space, and word-spacing.
 
@@ -60,10 +61,15 @@ A few others inherit as well, such as the list properties: list-style, list-styl
 
 inheritance << cascade
 
-# 3 special values
-## 3.1 using the inherit ketword
+## 1.3 special values
+### 1.3.1 using the inherit ketword
 Sometimes, you’ll want inheritance to take place when a cascaded value is preventing it. To do this, you can use the keyword inherit. You can override another value with this, and it will cause the element to inherit that value from its parent.
 
 You can also use the inherit keyword to force inheritance of a property not normally inherited,
+
+
+## 1.4 shorthand properties
+
+Most shorthand properties let you omit certain values and only specify the bits you’re concerned with. It’s important to know, however, that doing this still sets the omitted values; they’ll be set implicitly to their initial value.
 
 
