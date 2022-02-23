@@ -2,6 +2,23 @@
 sidebar_position: 1
 ---
 
+![](images/fiber.png)
+
+在 concurrent 模式中,react 是增量更新的.
+
+为了避免出现不完整的 UI,react 把渲染分为两步: render 和 commit
+
+- render 
+
+设置 rootfiber为 nextUnitOfWork, 通过 requestIdleCallbacks 异步增量更新 fiber(更新时,fiber 会尽可能复用current fiber )
+
+- commit
+
+同步递归执行,无法中断,更新真实 dom
+
+
+
+
 # 实现 react
 
 ## render
