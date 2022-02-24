@@ -96,3 +96,4 @@ const chain = middlewares.map((middleware) => middleware(middlewareAPI))
 // 当调用dispatch时，调用所有中间间
 dispatch = compose(...chain)(store.dispatch)
 ```
+

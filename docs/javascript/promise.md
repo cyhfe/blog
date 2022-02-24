@@ -4,17 +4,9 @@ sidebar_position: 2
 
 ## Promise A+ 规范
 
-promise.then(onFulfilled, onReject)
+### then 方法
 
-resolve(x)
 
-- 如果 x 为 Promise ，则使 promise 接受 x 的状态
-
-- 如果 x 处于等待态， promise 需保持为等待态直至 x 被执行或拒绝
-
-- 如果 x 处于执行态，用相同的值执行 promise
-
-- 如果 x 处于拒绝态，用相同的据因拒绝 promise
 
 ## 手写 promise
 
