@@ -1,8 +1,16 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-
+- [All About Types](#all-about-types)
+  - [hierarchy](#hierarchy)
+  - [The ABCs of Types](#the-abcs-of-types)
+    - [any](#any)
+    - [unknown](#unknown)
+    - [object](#object)
+    - [Type Operation: Type Aliases, Unions, and Intersections](#type-operation-type-aliases-unions-and-intersections)
+    - [null, undefined, void, never](#null-undefined-void-never)
+    - [Enums](#enums)
 # All About Types
 
 ## hierarchy
