@@ -7,9 +7,9 @@ sidebar_position: 2
     - [this](#this)
     - [call signatures](#call-signatures)
     - [Overloaded Function Types](#overloaded-function-types)
-      - [generic type](#generic-type)
-        - [when are generics bound?](#when-are-generics-bound)
-        - [where you can declare generics?](#where-you-can-declare-generics)
+    - [generic type](#generic-type)
+      - [when are generics bound?](#when-are-generics-bound)
+      - [where you can declare generics?](#where-you-can-declare-generics)
 
 # Functions
 
@@ -68,7 +68,7 @@ type Reverse = {
 }
 ```
 
-#### generic type
+### generic type
 
 we don’t know what this type will be ahead of time
 TypeScript infers from the type we pass in for . 
@@ -82,7 +82,7 @@ type Filter = {
 
 ```
 
-##### when are generics bound?
+#### when are generics bound?
 
 Generally, TypeScript will bind concrete types to your generic when you use the generic: for functions, it’s when you call them; for classes, it’s when you instantiate them (more on that in “Polymorphism”); and for type aliases and interfaces (see “Interfaces”), it’s when you use or implement them.
 
@@ -95,7 +95,7 @@ type StringFilter = Filter<string>
 let stringFilter: StringFilter = (array, f) => // ...
 ```
 
-##### where you can declare generics?
+#### where you can declare generics?
 
 ```ts
 // A full call signature, with scoped to an individual signature. Because is scoped to a single signature, TypeScript will bind the in this
