@@ -1,3 +1,8 @@
+---
+sidebar_position: 2
+---
+
+
 # All About Types
 
 ## hierarchy
@@ -64,3 +69,111 @@ type Color = 'blue' // Duplicate identifier 'Color'.ts(2300)
 ```
 
 2. Union and intersection types
+
+```ts
+type Cat = {
+  name: string
+  purrs: boolean
+}
+
+type Dog = {
+  name: string
+  barks: boolean
+  wags: boolean
+}
+
+type CatOrDogOrBoth = Cat | Dog
+type CatAndDog = Cat & Dog
+
+// Cat
+let a: CatOrDogOrBoth = {
+  name: "Bonkers",
+  purrs: true,
+}
+
+// Dog
+a = {
+  name: "Domino",
+  barks: true,
+  wags: true,
+}
+
+// Both
+a = {
+  name: "Donkers",
+  barks: true,
+  purrs: true,
+  wags: true,
+}
+
+let b: CatAndDog = {
+  name: 'Domino',
+  barks: true,
+  purrs: true,
+  wags: true
+}
+```
+
+### null, undefined, void, never
+
+```ts
+// number | null
+function a(x: number) {
+  if (x < 10) {
+    return x
+  }
+  return null
+}
+
+// undefined
+function b() {
+  return undefined
+}
+
+// void
+function c() {
+  let a = 4
+}
+
+// never
+function d() {
+  throw TypeError("never")
+}
+
+function e() {
+  while (true) {}
+}
+
+```
+
+### Enums
+
+```json
+{
+  "compilerOptions": {
+    // ...
+    "preserveConstEnums": true
+  },
+}
+
+```
+
+```ts
+enum Language {
+  English,
+  Spanish,
+  Chinese,
+}
+
+let a = Language.English
+```
+
+```js
+var Language;
+(function (Language) {
+    Language[Language["English"] = 0] = "English";
+    Language[Language["Spanish"] = 1] = "Spanish";
+    Language[Language["Chinese"] = 2] = "Chinese";
+})(Language || (Language = {}));
+let a = Language.English;
+```
