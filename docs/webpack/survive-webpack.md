@@ -64,5 +64,3 @@ module.exports = (env, args) => {
 ## assets
 
 ### javascript
-
-// 
