@@ -101,29 +101,29 @@
 //   return counter
 // }
 
-console.log(quickSort([1, 3, 4, 5, 2, 0]))
+// console.log(quickSort([1, 3, 4, 5, 2, 0]))
 
-function quickSort(nums) {
-  quick(nums, 0, nums.length - 1)
-  return nums
-}
+// function quickSort(nums) {
+//   quick(nums, 0, nums.length - 1)
+//   return nums
+// }
 
-function quick(nums, start, end) {
-  if (end <= start) return
-  const pivot = partition(nums, start, end)
-  quick(nums, start, pivot - 1)
-  quick(nums, pivot + 1, end)
-}
+// function quick(nums, start, end) {
+//   if (end <= start) return
+//   const pivot = partition(nums, start, end)
+//   quick(nums, start, pivot - 1)
+//   quick(nums, pivot + 1, end)
+// }
 
-function partition(nums, start, end) {
-  let counter = start
-  let pivot = end
-  for (let i = start; i < end; i++) {
-    if (nums[i] < nums[pivot]) {
-      ;[nums[counter], nums[i]] = [nums[i], nums[counter]]
-      counter++
-    }
-  }
-  ;[nums[counter], nums[pivot]] = [nums[pivot], nums[counter]]
-  return counter
-}
+// function partition(nums, start, end) {
+//   let counter = start
+//   let pivot = end
+//   for (let i = start; i < end; i++) {
+//     if (nums[i] < nums[pivot]) {
+//       ;[nums[counter], nums[i]] = [nums[i], nums[counter]]
+//       counter++
+//     }
+//   }
+//   ;[nums[counter], nums[pivot]] = [nums[pivot], nums[counter]]
+//   return counter
+// }
