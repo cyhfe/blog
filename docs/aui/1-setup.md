@@ -46,6 +46,18 @@ npm version patch
 npm publish --access public 
 ```
 
+## style
 
+样式方案选择`emotion`
 
+```bash
+pnpm i @emotion/react @emotion/styled
+```
 
+## icons
+
+icon 选择`react icons`
+
+```bash
+pnpm i react-icons
+```
