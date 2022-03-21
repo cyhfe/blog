@@ -79,6 +79,7 @@ is like a placeholder type, to be filled in by the typechecker from context;
 type Filter = {
   <T>(array: T[], f: (item: T) => boolean): T[]
 }
+k
 
 ```
 
