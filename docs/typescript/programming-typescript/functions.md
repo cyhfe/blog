@@ -67,7 +67,7 @@ type Reverse = {
   (from: Date, destination: string): Reservation
 }
 ```
-
+test git
 ### generic type
 
 we don’t know what this type will be ahead of time
