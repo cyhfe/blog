@@ -14,7 +14,7 @@ sidebar_position: 2
 # Functions
 
 ## Declaring and Invoking Functions
-
+t
 ```ts
 // named function
 function greet(name: string){
