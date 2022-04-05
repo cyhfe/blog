@@ -41,4 +41,6 @@ git diff --staged
 ## 从暂存区恢复
 git restore --staged
 
+## 从历史记录恢复
+git restore --source=<branch> <file>
 ```
