@@ -44,5 +44,5 @@ git restore --staged
 ## 从历史记录恢复
 git restore --source=<branch> <file>
 
-# t
+# main update
 ```
