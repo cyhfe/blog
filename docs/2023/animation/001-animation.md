@@ -30,6 +30,8 @@ function restartAnimation(el) {
 
 ## 动画编排
 
+[https://codepen.io/p4nghu/pen/rNqmezX](https://codepen.io/p4nghu/pen/rNqmezX)
+
 ```html
 <div class="container">
   <div class="ball" style="--i: 0"></div>
