@@ -88,3 +88,52 @@ btn.onclick = () => {
   })
 }
 ```
+
+## lerp
+
+[https://codepen.io/p4nghu/pen/qBJmZGr](https://codepen.io/p4nghu/pen/qBJmZGr)
+
+```html
+<div id="circle"></div>
+```
+
+```css
+#circle {
+  width: 20px;
+  height: 20px;
+  background: blue;
+  border-radius: 50%;
+  transform: translate(
+    calc(var(--dx) - 50% - 10px),
+    calc(var(--dy) - 50% - 10px)
+  );
+}
+```
+
+```js
+const circle = document.getElementById("circle")
+
+const target = { x: 0, y: 0 }
+const current = { x: 0, y: 0 }
+
+function lerp() {
+  if (current.x !== target.x && current.y !== target.y) {
+    current.x = current.x + (target.x - current.x) * 0.1
+    current.y = current.y + (target.y - current.y) * 0.1
+    circle.style.setProperty("--dx", current.x + "px")
+    circle.style.setProperty("--dy", current.y + "px")
+  }
+
+  requestAnimationFrame(lerp)
+}
+
+requestAnimationFrame(lerp)
+
+window.addEventListener("mousemove", (e) => {
+  const { clientX: x, clientY: y } = e
+  target.x = x
+  target.y = y
+  // circle.style.setProperty("--dx", x + 'px');
+  // circle.style.setProperty("--dy", y + 'px');
+})
+```
