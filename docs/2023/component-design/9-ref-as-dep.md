@@ -6,7 +6,7 @@ sidebar_position: 9
 
 ref 不会触发重新渲染，而 useEffect 是 DOM 更新之后的副作用。
 
-你在 effect 中使用的任何在更新时不会触发重新渲染的东西都不应该进入依赖数组。
+在 effect 中使用的任何在更新时不会触发重新渲染的东西都不应该进入依赖数组。
 
 ```tsx
 // ref值变了，effect没有重新执行
