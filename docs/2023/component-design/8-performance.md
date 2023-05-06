@@ -17,6 +17,31 @@ function expensiveInitial() {
 const [state, setState] = useState(() => expensiveInitial());
 ```
 
+### useRef: 实例化需要昂贵的计算
+
+[https://github.com/facebook/react/issues/14490#issuecomment-454973512](https://github.com/facebook/react/issues/14490#issuecomment-454973512)
+
+```jsx
+function Foo() {
+  const instanceRef = useRef(null);
+
+  function getInstance() {
+    let instance = instanceRef.current;
+    if (instance !== null) {
+      return instance;
+    }
+    // Lazy init
+    let newInstance = new Instance();
+    instanceRef.current = newInstance;
+    return newInstance;
+  }
+
+  // Whenever you need it...
+  const instance = getInstance();
+  // ...
+}
+```
+
 ## 状态下沉
 
 尽可能将状态下沉避免不必要的重新渲染。
