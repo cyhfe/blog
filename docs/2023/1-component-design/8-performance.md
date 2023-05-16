@@ -4,6 +4,15 @@ sidebar_position: 8
 
 # 性能优化
 
+1. 优化 DOM 操作
+
+- key: 更新属性而不必删除创建
+- 避免重排操作.特别是动画.(transform,animation, ) > (position,width, height)
+
+1. 优化重新渲染(渲染指调用组件函数生成 vdom 及 Fiber 的过程)
+   - useCallback, memo, 巧用 ref, 减少重新渲染
+   - useMemo 缓存计算量大的操作
+
 ## 惰性初始化
 
 `useState`可以接受一个函数并把返回值作为初始值。
