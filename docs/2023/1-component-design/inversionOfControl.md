@@ -4,33 +4,25 @@ sidebar_position: 1
 
 # 控制反转
 
-## 问题
+## 1. 控制反转
 
-想象一个场景：你在写一些可重用的代码（function, component, hook 等）。
+### 1-1 概念
 
-现在来了一些新的需求，你的代码不支持这些用例，所以你加了一些配置（config， options）和对应的逻辑实现来支持这些用例。
+控制反转（Inversion of Control，IoC）是一种软件设计原则和编程模式，旨在解耦软件组件之间的依赖关系。在传统的编程模型中，组件间通常直接依赖于其他组件，导致高耦合度和难以重用的代码。控制反转通过将组件的依赖关系交由外部容器来管理，实现了组件之间的解耦和灵活性。
 
-重复上述步骤，你的代码会变得难以维护，API 复杂臃肿。
+### 1-2 案例
 
-## 进入控制反转的世界
-
-这是 wiki 的解释：
-
-> ..in traditional programming, the custom code that expresses the purpose of the program calls into reusable libraries to take care of generic tasks, but with inversion of control, it is the framework that calls into the custom, or task-specific, code.
-
-简单的说就是：代码抽象关注的是通用逻辑，具体用例交给用户来实现。
-
-## 案例：filter
+现在我们有个需求,需要过滤数组中的布尔转换为 false 的值.
+通过配置是这样实现的
 
 ```js
-// filter配置实现
 function filter(
   array,
   {
     filterNull = true,
     filterUndefined = true,
-    filterZero = false,
-    filterEmptyString = false,
+    filterZero = true,
+    filterEmptyString = true,
   } = {}
 ) {
   let newArray = [];
@@ -51,8 +43,11 @@ function filter(
 }
 ```
 
+需求总是会变的,如果跟着需求修改配置项来实现功能.代码会变得臃肿难以维护.
+
+通过依赖注入的方式来实现控制反转.
+
 ```js
-// filter 回调实现
 function filter(array, filterFn) {
   let newArray = [];
   for (let index = 0; index < array.length; index++) {
@@ -65,7 +60,9 @@ function filter(array, filterFn) {
 }
 ```
 
-你可能会觉得： 我们要做的事情更多了，这样不是更糟糕的 API 吗？
+控制反转的思想就是只抽象通用的部分,将控制权更多的交给用户.
+
+可能会觉得这样代码会变得更繁琐(我要写的代码更多了).
 
 ```js
 // before
@@ -78,7 +75,7 @@ filter(
 );
 ```
 
-其实不然，抽象程度低的代码可以根据需求再封装，可以实现同样的 API
+低程度的抽象可以根据具体需求二次封装
 
 ```js
 function filterWithOptions(
@@ -103,9 +100,9 @@ function filterWithOptions(
 }
 ```
 
-## 在 React 中使用
+### 1-2 在 React 中如何应用
 
-在函数中我们可以使用 callback 控制反转，在 React 中我们可以使用复合组件（渲染 children）
+通过渲染 children,也就是复合组件.将控制权更多的交给用户.
 
 ```jsx
 function Example() {
@@ -133,8 +130,12 @@ function Example() {
 }
 ```
 
-```jsx
-// 根据需求再封装
+这样的 API 可能看起来很繁琐,但是它提供了超强的可拓展性.
+
+1. dataTabs
+
+```js
+// 封装
 const DataTabs = ({ data }: DataTabsProps) => {
   return (
     <Tabs>
@@ -151,12 +152,38 @@ const DataTabs = ({ data }: DataTabsProps) => {
     </Tabs>
   );
 };
+
+// 使用
+<DataTabs data={data} />;
 ```
 
-## 总结
+2. 动画,修改 DOM 结构等
 
-之前看开源库的时候，关注点在代码是怎么实现的。在了解控制反转之后，对为什么这样设计有了新的理解。
+参考 Dialog 组件.
 
-控制反转是我在组件设计中学到的最重要的概念之一，感谢 kentcdodds 的这篇文章:
+我是先写逻辑后写动画.
 
-[https://kentcdodds.com/blog/inversion-of-control](https://kentcdodds.com/blog/inversion-of-control)
+可以在不变更原有代码的基础上添加功能.
+
+```jsx
+// import { Dialog } from './index';
+import AnimatedDialog from "./AnimatedDialog";
+```
+
+## 2 状态管理
+
+复合组件的状态分为两部分:
+
+- 组件间共享的状态,通过 `Context`传递.Provider 的 value 用 useMemo 包裹.每次 value 变化所有 consumer 都会重新渲染.
+- 组件维护自身的状态.在性能优化的概念下,尽可能下沉状态.以减少重复渲染.
+
+参考 createContext
+
+## 3 受控与非受控
+
+受控: 组件外部状态控制
+非受控: 组件自身维护状态
+
+通过 `value` 确定受控与否,通过 `onChange`提供给外部组件更新状态
+
+参考 useControlledState
