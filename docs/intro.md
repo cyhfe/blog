@@ -3,7 +3,7 @@ sidebar_position: 0
 slug: /
 ---
 
-# introduction
+# intro
 
 **GETTING YOUR HANDS DIRTY**
 
