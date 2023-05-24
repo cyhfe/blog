@@ -1,3 +1,0 @@
-# bianry search
-
-haha
