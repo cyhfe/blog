@@ -127,4 +127,61 @@ WHERE cust_contact LIKE '[^JM]%' ORDER BY cust_contact;
 SELECT vend_name || '(' || vend_country || ')'
 FROM Vendors
 ORDER BY vend_name;
+
+SELECT RTRIM(vend_name) || ' (' || RTRIM(vend_country) || ')'
+FROM Vendors
+ORDER BY vend_name;
+
+-- 别名
+SELECT RTRIM(vend_name) || ' (' || RTRIM(vend_country) || ')'
+ AS vend_title
+FROM Vendors
+ORDER BY vend_name;
+
+-- 执行算术计算
+SELECT prod_id,
+       quantity,
+item_price,
+       quantity*item_price AS expanded_price
+FROM OrderItems
+WHERE order_num = 20008;
+```
+
+## \_函数
+
+## 汇总数据
+
+```sql
+-- AVG()函数
+SELECT AVG(prod_price) AS avg_price
+FROM Products;
+
+-- 使用 COUNT(*)对表中行的数目进行计数，不管表列中包含的是空值 (NULL)还是非空值。
+SELECT COUNT(*) AS num_cust
+FROM Customers;
+
+-- 使用 COUNT(column)对特定列中具有值的行进行计数，忽略 NULL 值。
+SELECT COUNT(cust_email) AS num_cust
+FROM Customers;
+
+-- MAX()函数
+SELECT MAX(prod_price) AS max_price
+FROM Products;
+
+-- SUM()函数
+SELECT SUM(quantity) AS items_ordered
+FROM OrderItems
+WHERE order_num = 20005;
+
+-- 平均值只考虑各个不同的价格
+SELECT AVG(DISTINCT prod_price) AS avg_price
+FROM Products
+WHERE vend_id = 'DLL01';
+
+-- 聚合
+SELECT COUNT(*) AS num_items,
+       MIN(prod_price) AS price_min,
+       MAX(prod_price) AS price_max,
+       AVG(prod_price) AS price_avg
+FROM Products;
 ```
