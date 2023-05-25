@@ -87,3 +87,35 @@ model Comment {
   @@map("comments")
 }
 ```
+
+## 关系
+
+- one-to-one: User ↔ Profile
+- one-to-many: User ↔ Post
+- many-to-many: Post ↔ Category
+
+```prisma
+model User {
+  id      Int      @id @default(autoincrement())
+  posts   Post[]
+  profile Profile?
+}
+
+model Profile {
+  id     Int  @id @default(autoincrement())
+  user   User @relation(fields: [userId], references: [id])
+  userId Int  @unique // relation scalar field (used in the `@relation` attribute above)
+}
+
+model Post {
+  id         Int        @id @default(autoincrement())
+  author     User       @relation(fields: [authorId], references: [id])
+  authorId   Int // relation scalar field  (used in the `@relation` attribute above)
+  categories Category[]
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  posts Post[]
+}
+```
