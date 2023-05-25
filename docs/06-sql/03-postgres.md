@@ -42,3 +42,12 @@ VALUES(1,'John Doe','(408)-111-1234','john.doe@bluebird.dev'),
       (2,'David Wright','(408)-222-1234','david.wright@dolphin.dev');
 
 ```
+
+## SERIAL
+
+```sql
+CREATE TABLE fruits(
+   id SERIAL PRIMARY KEY,
+   name VARCHAR NOT NULL
+);
+```
