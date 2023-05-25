@@ -1,5 +1,5 @@
 {
-  "label": "SQL",
+  "label": "数据库",
   "link": {
     "type": "generated-index",
     "description": "使用 Prisma 进行 CRUD 的时候,我感到不安,不知道发生了什么.因为我不懂 SQL."
