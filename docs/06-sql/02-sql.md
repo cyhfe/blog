@@ -185,3 +185,97 @@ SELECT COUNT(*) AS num_items,
        AVG(prod_price) AS price_avg
 FROM Products;
 ```
+
+## 数据分组
+
+```sql
+-- 创建分组
+SELECT vend_id, COUNT(*) AS num_prods
+FROM Products
+GROUP BY vend_id;
+
+-- 过滤分组s
+SELECT cust_id, COUNT(*) AS orders
+FROM Orders
+GROUP BY cust_id
+HAVING COUNT(*) >= 2;
+```
+
+## 子查询
+
+```sql
+SELECT cust_id
+FROM Orders
+WHERE order_num IN (SELECT order_num
+					          FROM OrderItems
+                    WHERE prod_id = 'RGAN01');
+```
+
+## 联结表
+
+```sql
+-- 创建联结
+-- 在联结两个表时，实际要做的是将 第一个表中的每一行与第二个表中的每一行配对。WHERE 子句作为过滤 条件，只包含那些匹配给定条件(这里是联结条件)的行。没有 WHERE 子句，第一个表中的每一行将与第二个表中的每一行配对，而不管它们 逻辑上是否能配在一起。
+SELECT vend_name, prod_name, prod_price
+FROM Vendors, Products
+WHERE Vendors.vend_id = Products.vend_id;
+
+-- 内联结 同上
+SELECT vend_name, prod_name, prod_price
+FROM Vendors
+INNER JOIN Products ON Vendors.vend_id = Products.vend_id;
+
+-- 自联结
+SELECT c1.cust_id, c1.cust_name, c1.cust_contact
+FROM Customers AS c1, Customers AS c2
+WHERE c1.cust_name = c2.cust_name
+ AND c2.cust_contact = 'Jim Jones';
+
+-- 外联结
+ SELECT Customers.cust_id, Orders.order_num
+FROM Customers
+ LEFT OUTER JOIN Orders ON Customers.cust_id = Orders.cust_id;
+```
+
+## 组合查询
+
+```sql
+SELECT cust_name, cust_contact, cust_email
+FROM Customers
+WHERE cust_state IN ('IL','IN','MI')
+UNION
+SELECT cust_name, cust_contact, cust_email
+FROM Customers
+WHERE cust_name = 'Fun4All';
+```
+
+## 插入数据
+
+```sql
+-- 插入完整的行
+INSERT INTO Customers
+VALUES(1000000006,
+       'Toy Land',
+       '123 Any Street',
+       'New York',
+       'NY',
+       '11111',
+       'USA',
+       NULL,
+       NULL);
+```
+
+## 更新和删除数据
+
+```sql
+UPDATE Customers
+SET cust_email = 'kim@thetoystore.com'
+WHERE cust_id = 1000000005;
+```
+
+## 删除数据
+
+```sql
+DELETE FROM Customers
+WHERE cust_id = 1000000006;
+```
