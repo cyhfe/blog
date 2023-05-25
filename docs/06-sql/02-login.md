@@ -117,4 +117,14 @@ FROM Customers
 WHERE cust_contact LIKE '[^JM]%' ORDER BY cust_contact;
 ```
 
-##
+## 计算字段
+
+> 客户端与服务器的格式
+> 在 SQL 语句内可完成的许多转换和格式化工作都可以直接在客户端 应用程序内完成。但一般来说，在数据库服务器上完成这些操作比在 客户端中完成要快得多。
+
+```sql
+-- 拼接字段
+SELECT vend_name || '(' || vend_country || ')'
+FROM Vendors
+ORDER BY vend_name;
+```
