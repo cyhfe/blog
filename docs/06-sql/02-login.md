@@ -69,3 +69,52 @@ WHERE prod_price IS NULL;
 ```
 
 ## 高级数据过滤
+
+```sql
+-- AND操作符
+SELECT prod_id, prod_price, prod_name
+FROM Products
+WHERE vend_id = 'DLL01' AND prod_price <= 4;
+
+-- OR操作符
+SELECT prod_id, prod_price, prod_name
+FROM Products
+WHERE vend_id = 'DLL01' OR vend_id = 'BRS01';
+
+-- 在处理 OR 操作符前，优先处理 AND 操作符, 括号对操作符进行明确分组
+
+-- IN操作符
+SELECT prod_name, prod_price
+FROM Products
+WHERE vend_id  IN ('DLL01','BRS01')
+ORDER BY prod_name;
+
+
+-- NOT操作符
+SELECT prod_name
+FROM Products
+WHERE NOT vend_id = 'DLL01'
+ORDER BY prod_name;
+
+```
+
+## 用通配符进行过滤
+
+```sql
+-- 百分号(%)通配符
+SELECT prod_id, prod_name
+FROM Products
+WHERE prod_name LIKE '%bean bag%';
+
+-- 下划线(_)通配符,只匹配单个
+SELECT prod_id, prod_name
+FROM Products
+WHERE prod_name LIKE '__ inch teddy bear';
+
+-- 方括号([])通配符
+SELECT cust_contact
+FROM Customers
+WHERE cust_contact LIKE '[^JM]%' ORDER BY cust_contact;
+```
+
+##
