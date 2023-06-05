@@ -277,3 +277,81 @@ npm install --save-dev eslint-config-react-app eslint
     historyApiFallback: true,
   },
 ```
+
+## 不需要打包的静态资源
+
+```bash
+npm i copy-webpack-plugin -D
+```
+
+```js
+{
+  // ...
+  plugins: [
+    // ...
+    new CopyPlugin({
+      patterns: [{ from: "public/midi", to: "midi" }],
+    }),
+  ],
+}
+```
+
+## emotion
+
+```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    //...
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react"
+  }
+}
+```
+
+## tailwind
+
+```js
+// webpack.config.js
+module: {
+  rules: [
+    {
+      test: /\.css$/i,
+      use: [
+        "style-loader",
+        "css-loader",
+        {
+          loader: "postcss-loader",
+          options: {
+            postcssOptions: {
+              config: path.resolve(__dirname, "postcss.config.js"),
+            },
+          },
+        },
+      ],
+    },
+  ];
+}
+```
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+```
+
+```js
+// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.tsx"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
