@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: sudo docker-compose -p blog up --build -d
+        run: docker compose -p blog up --build -d
