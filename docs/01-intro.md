@@ -2,9 +2,7 @@
 slug: /
 ---
 
-# intro
-
-**GETTING YOUR HANDS DIRTY**
+# 首页
 
 React Component Library - [http://ui.chenyuhao.site](http://ui.chenyuhao.site)
 
