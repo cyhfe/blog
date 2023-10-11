@@ -18,6 +18,10 @@
 
   https://deck.of.cards/
 
+- Be Prepared To Lose Your Job In The Future… If You Don’t Learn This One Skill Now
+
+  https://medium.com/accelerated-intelligence/be-prepared-to-lose-your-job-in-the-future-if-you-dont-learn-this-one-skill-now-8a87ade2a268
+
 ## The Principles
 
 - The Lesson to Unlearn
