@@ -46,7 +46,7 @@ Merging props and node references
 
 渲染委派时需要注意的一个行为是，props 和事件处理程序可以在两个位置定义 — 在父组件和子组件上。
 
-因此，我们必须定义规则，使合并父道具和子道具的过程可预测且直观。
+因此，我们必须定义规则，使合并父 props 和子 props 的过程可预测且直观。
 
 1. if a prop exists on both, the child prop overrides the parent prop
 2. if an event handler exists on both, both handlers are called with the child handler being called before the parent handler.
