@@ -1,5 +1,69 @@
 # Elements, children as props
 
+props 变化不会触发 re-render
+
+[https://codesandbox.io/s/practical-matsumoto-3qtwwn?file=/src/App.js:58-462](https://codesandbox.io/s/practical-matsumoto-3qtwwn?file=/src/App.js:58-462)
+
+```jsx
+// Child 会重新渲染
+import { useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  return (
+    <div className="App">
+      <Parent />
+    </div>
+  );
+}
+
+function Parent() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <p onClick={() => setCount((prev) => prev + 1)}>{count}</p>
+      <Child />
+    </div>
+  );
+}
+
+function Child() {
+  console.log("child");
+  return <div>child</div>;
+}
+```
+
+```jsx
+// Child 组件不会重新渲染
+import { useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  return (
+    <div className="App">
+      <Parent>
+        <Child />
+      </Parent>
+    </div>
+  );
+}
+
+function Parent({ children }) {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <p onClick={() => setCount((prev) => prev + 1)}>{count}</p>
+      {children}
+    </div>
+  );
+}
+
+function Child() {
+  console.log("child");
+  return <div>child</div>;
+}
+```
+
 ## 问题
 
 在主页面加一个滚动监听到某个位置出现内容(比如次级导航)
@@ -49,32 +113,6 @@ const App = () => {
     </ScrollableWithMovingBlock>
   );
 };
-```
-
-## hook 中的状态更新触发的重新渲染
-
-```jsx
-const useResizeDetector = () => {
-const [width, setWidth] = useState(0);
-useEffect(() => {
-const listener = () => {
-setWidth(window.innerWidth); };
-window.addEventListener('resize', listener);
-return () => window.removeEventListener('resize', listener);
-}, []);
-  return null;
-}
-const useModalDialog = () => {
-// I don't even use it, just call it here useResizeDetector();
-  // return is the same
-return ...
-}
-const App = () => {
-// this hook uses useResizeDetector underneath that triggers
-state update on resize
-// the entire App will re-render on every resize! const { isOpen, open, close } = useModalDialog();
-return // same return }
-}
 ```
 
 ## 总结
