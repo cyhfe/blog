@@ -1,6 +1,6 @@
 # Elements, children as props
 
-props 变化不会触发 re-render
+props 传递 children 不会触发 re-render
 
 [https://codesandbox.io/s/practical-matsumoto-3qtwwn?file=/src/App.js:58-462](https://codesandbox.io/s/practical-matsumoto-3qtwwn?file=/src/App.js:58-462)
 
