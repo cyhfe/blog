@@ -11,7 +11,7 @@ const config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "http://blog.chenyuhao.site",
+  url: "https://blog.icyh.me",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -73,12 +73,7 @@ const config = {
           // },
           // { to: "/blog", label: "Blog", position: "left" },
           {
-            href: "http://ui.chenyuhao.com",
-            label: "React Component",
-            position: "right",
-          },
-          {
-            href: "https://github.com/facebook/docusaurus",
+            href: "https://github.com/cyhfe",
             label: "GitHub",
             position: "right",
           },
@@ -134,6 +129,14 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+  scripts: [
+    // Object format.
+    {
+      src: "https://cdn.jsdelivr.net/npm/@cyhfe/tracker@0.0.9/dist/tracker.js",
+      async: true,
+      "data-wid": "67c8ec22-6910-4984-8347-53aca902e005",
+    },
+  ],
 };
 
 module.exports = config;
